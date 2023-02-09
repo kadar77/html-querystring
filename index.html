@@ -12,6 +12,8 @@
             }
 
             document.getElementById("params").innerHTML = innerHTML;
+
+            document.getElementById('redirect').value = 'http://localhost:8080/fallback' + window.location.search;
         }
 
         function copyText(key) {
@@ -42,6 +44,10 @@
         function outFunc(key) {
             var tooltip = document.getElementById(`myTooltip-${key}`);
             tooltip.innerHTML = "Copy to clipboard";
+        }
+
+        function redirectToUrl() {
+            location.href = document.getElementById('redirect').value;
         }
 
     </script>
@@ -96,6 +102,12 @@
     <!-- The text field -->
    
     <div id="params"></div>
+
+    <div>
+        <label for="redirect"></label>
+        <input type="text" value="" id="redirect">
+        <button onclick="redirectToUrl()">GoTo</button>
+    </div>
 
 
 
